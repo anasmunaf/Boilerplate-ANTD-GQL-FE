@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://anasmunaf.github.io/Boilerplate-ANTD-GQL-FE",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
