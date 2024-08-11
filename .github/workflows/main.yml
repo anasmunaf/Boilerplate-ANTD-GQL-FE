@@ -34,5 +34,6 @@ jobs:
       uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.ACCESS_TOKEN }}
+        publish_branch: gh-pages
         publish_dir: ./build      # This is the directory where your built React app is located
 
