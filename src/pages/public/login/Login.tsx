@@ -5,6 +5,8 @@ import { publicRoutes } from "../../../constants/routes";
 import { useMutation } from "@apollo/client";
 import { LOGIN } from "./gql";
 import { useAuth } from "../../../hooks";
+import { getDynamicUrl } from "../../../utils/helpers";
+import logo from "../../../assets/images/logo.png";
 
 type Props = {};
 
@@ -32,7 +34,7 @@ const Login = (props: Props) => {
       <Row justify="center" gutter={[0, 10]}>
         <Col span={24}>
           <Flex justify="center">
-            <img src="/images/logo.png" width="200" height="100" />
+            <img src={logo} width="200" height="100" />
           </Flex>
         </Col>
 
@@ -86,7 +88,9 @@ const Login = (props: Props) => {
         <Col span={18}>
           <Button
             type="link"
-            onClick={() => navigate(publicRoutes.forgotPassword)}
+            onClick={() =>
+              navigate(getDynamicUrl(".", publicRoutes.forgotPassword))
+            }
           >
             Forgot Password
           </Button>
