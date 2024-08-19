@@ -1,13 +1,10 @@
-import {
-  createBrowserRouter,
-  redirect,
-  RouterProviderProps,
-} from "react-router-dom";
+import { redirect } from "react-router-dom";
 import { PublicLayout } from "../layout/public";
 import { lazy } from "react";
 import { publicRoutes } from "../constants/routes";
+import { DEV_VAR } from "../utils/config";
 
-const router = createBrowserRouter([
+const unAuthorized = [
   {
     id: "root",
     path: publicRoutes.default,
@@ -27,10 +24,6 @@ const router = createBrowserRouter([
       },
     ],
   },
-]);
-
-const unAuthorized: RouterProviderProps = {
-  router,
-};
+];
 
 export default unAuthorized;

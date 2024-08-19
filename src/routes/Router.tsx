@@ -1,16 +1,18 @@
-import { RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import authorized from "./authorized";
 import unAuthorized from "./unAuthorized";
-import { useSelector } from "react-redux";
-import { RootState } from "../redux/store";
-import { ApolloClient, useApolloClient } from "@apollo/client";
+import { DEV_VAR } from "../utils/config";
+import { useAuth } from "../hooks";
 
-type Props = {};
-const Router = (props: Props) => {
-  const isAuth = useSelector((state: RootState) => state.auth.isAuth);
+const Router = () => {
+  const { isAuth } = useAuth();
 
-  const route = isAuth ? authorized : unAuthorized;
-  return <RouterProvider fallbackElement={<p>Initial Load...</p>} {...route} />;
+  const routes = isAuth ? authorized : unAuthorized;
+  const router = createBrowserRouter(routes, {
+    basename: DEV_VAR.BASE_DOMAIN,
+  });
+
+  return <RouterProvider router={router} />;
 };
 
 export default Router;

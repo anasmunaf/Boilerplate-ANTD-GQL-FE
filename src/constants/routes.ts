@@ -1,5 +1,6 @@
 export const publicRoutes = {
   default: "/",
+  login: "login",
   forgotPassword: "forgot-password",
 };
 

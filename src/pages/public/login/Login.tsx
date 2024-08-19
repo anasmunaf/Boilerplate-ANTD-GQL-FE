@@ -5,6 +5,7 @@ import { publicRoutes } from "../../../constants/routes";
 import { useMutation } from "@apollo/client";
 import { LOGIN } from "./gql";
 import { useAuth } from "../../../hooks";
+import { getDynamicUrl } from "../../../utils/helpers";
 
 type Props = {};
 
@@ -86,7 +87,9 @@ const Login = (props: Props) => {
         <Col span={18}>
           <Button
             type="link"
-            onClick={() => navigate(publicRoutes.forgotPassword)}
+            onClick={() =>
+              navigate(getDynamicUrl(".", publicRoutes.forgotPassword))
+            }
           >
             Forgot Password
           </Button>
