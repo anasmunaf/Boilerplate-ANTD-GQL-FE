@@ -1,9 +1,8 @@
 import React from "react";
 import { Col, Row } from "antd";
 import { Outlet } from "react-router-dom";
-
+import banner from "../../assets/images/public-banner.jpg";
 type Props = {};
-const banner = "/images/public-banner.jpg";
 
 function PublicLayout({}: Props) {
   return (
